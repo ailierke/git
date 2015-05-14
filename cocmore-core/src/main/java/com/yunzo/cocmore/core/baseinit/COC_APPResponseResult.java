@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 
 /**
+ * ailierke
  * JSON 转换格式 
  * @author david
  *
