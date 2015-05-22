@@ -16,25 +16,24 @@ import org.springframework.core.io.ClassPathResource;
  * @author xiaobo 
  * @version V1.0                             
  */
-public class CachingConfig {}
-//@Configuration
-//@EnableCaching//<!-- 启用缓存注解 --> <cache:annotation-driven cache-manager="cacheManager" />
-//public class CachingConfig {
-//	private static final Logger logger = Logger.getLogger(CachingConfig.class);
-//	@Bean
-//	public EhCacheManagerFactoryBean ehCacheManagerFactoryBean() {
-//		EhCacheManagerFactoryBean ehCacheManagerFactoryBean = new EhCacheManagerFactoryBean();
-//		ehCacheManagerFactoryBean.setConfigLocation(new ClassPathResource(
-//				"config/ehcache.xml"));
-//		return ehCacheManagerFactoryBean;
-//	}
-//
-//	@Bean
-//	public CacheManager cacheManager() {
-//		logger.info("EhCacheCacheManager");
-//		EhCacheCacheManager cacheManager = new EhCacheCacheManager();
-//		cacheManager.setCacheManager(ehCacheManagerFactoryBean().getObject());
-//		return cacheManager;
-//	}
-//	
-//}
+@Configuration
+@EnableCaching//<!-- 启用缓存注解 --> <cache:annotation-driven cache-manager="cacheManager" />
+public class CachingConfig {
+	private static final Logger logger = Logger.getLogger(CachingConfig.class);
+	@Bean
+	public EhCacheManagerFactoryBean ehCacheManagerFactoryBean() {
+		EhCacheManagerFactoryBean ehCacheManagerFactoryBean = new EhCacheManagerFactoryBean();
+		ehCacheManagerFactoryBean.setConfigLocation(new ClassPathResource(
+				"config/ehcache.xml"));
+		return ehCacheManagerFactoryBean;
+	}
+
+	@Bean
+	public CacheManager cacheManager() {
+		logger.info("EhCacheCacheManager");
+		EhCacheCacheManager cacheManager = new EhCacheCacheManager();
+		cacheManager.setCacheManager(ehCacheManagerFactoryBean().getObject());
+		return cacheManager;
+	}
+	
+}

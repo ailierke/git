@@ -14,11 +14,10 @@ import org.springframework.stereotype.Controller;
  * @author xiaobo 
  * @version V1.0                             
  */
-public class AppConfig {}
-//@Configuration
-//@ComponentScan(basePackages = "com.yunzo.cocmore.core.function", excludeFilters = { @ComponentScan.Filter(type = FilterType.ANNOTATION, value = { Controller.class }) })
-//@EnableAspectJAutoProxy(proxyTargetClass=true)
-//@Import({CachingConfig.class,DaoConfig.class})
-//public class AppConfig {
-//	
-//}
+@Configuration
+@ComponentScan(basePackages = "com.yunzo.cocmore.core.function", excludeFilters = { @ComponentScan.Filter(type = FilterType.ANNOTATION, value = { Controller.class }) })
+@EnableAspectJAutoProxy(proxyTargetClass=true)
+@Import({CachingConfig.class,DaoConfig.class})
+public class AppConfig {
+	
+}
