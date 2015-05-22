@@ -13,11 +13,11 @@
 multicastGroupPort=4446, timeToLive=32" />
 
 	<!-- <diskStore path="java.io.tmpdir" /> -->
-	<diskStore path="d:/cachetmpdir" />
+	<diskStore path="java.io.tmpdir" /><!-- Java.io.tmpdir目录在运行时会根据相对路径生成 -->
 
-	<cache name="commonCache" maxEntriesLocalHeap="10"
-		maxElementsOnDisk="1000" eternal="false" overflowToDisk="false"
-		timeToIdleSeconds="300" timeToLiveSeconds="30">
+	<cache name="commonCache"  maxElementsInMemory="10000"
+		maxElementsOnDisk="1000" eternal="false" overflowToDisk="true"
+		timeToIdleSeconds="300" timeToLiveSeconds="600" memoryStoreEvictionPolicy="LFU">
 		<!-- <cacheEventListenerFactory class="net.sf.ehcache.distribution.RMICacheReplicatorFactory" 
 			properties="replicateAsynchronously=true, replicatePuts=true, replicateUpdates=true, 
 			replicateUpdatesViaCopy=false, replicateRemovals=true " /> -->
